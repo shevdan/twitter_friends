@@ -71,12 +71,6 @@ def create_map(user, locations: list):
 
     return map_test
 
-def generate_map(screen_name):
-    api = auth(CONSUMER_KEY, CONSUMER_KEY_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
-    loc = friends_locations(screen_name, api)
-    test_map = create_map(api.get_user(screen_name), loc)
-    return test_map
-
 app = Flask(__name__)
 
 @app.route("/")
@@ -101,4 +95,4 @@ def generate():
     return twitter_map.get_root().render()
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
